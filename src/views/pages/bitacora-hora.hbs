@@ -1,0 +1,75 @@
+
+  <label class="badge badge-danger titulo">
+    <h1>Bitacora Diaria por Hora</h1>
+    <h3 id="fecha"></h3>
+  </label>
+
+ 
+  <br>
+  <form>
+    <br>
+    <div class="row">
+      <div class="col">
+        <div class="input-group">
+          <div class="input-group-append">
+            <input type="text" class="form-control" id="horas" placeholder="Horas" readonly>
+            <button class="btn btn-danger" type="button" id="inputGroupFileAddon04">Editar</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <select class="custom-select size-big" id="inputGroupSelect01" autofocus>
+          <option selected>Seleccione la Actividad</option>
+          <option value="1">HAMS CAMBIO DE ESTILO</option>
+          <option value="2">HAMS INSPECION</option>
+          <option value="3">HAMS HOUSE KEEPING</option>
+          <option value="4">GSD ANALISIS</option>
+          <option value="5">REPORTE DIARIO DE PRODUCCION</option>
+          <option value="6">PAPELERIA PARA SUPERVISOR</option>
+          <option value="7">REPORTE MENSUAL DE TARGET</option>
+          <option value="8">VARIOS</option>          
+        </select>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control size-medium" placeholder="Comentario" id="comentario">
+      </div>
+      <div class="col">
+      <button class="btn btn-primary" id="boton" onclick="">Agregar</button>
+      </div>
+    </div>
+ 
+  </form>
+
+  <br>
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Actividad</th>
+        <th scope="col">Comentario</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+

@@ -1,0 +1,62 @@
+<div class="pos-f-t content">
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+            <form action="/links/reg-dia" method="POST">
+
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" id="horas" placeholder="Horas" name="horas"
+                                    readonly>
+                            </div>
+                            <div class="col" id="edit">
+                                <button class="btn btn-danger " type="button" onclick="editar()">
+                                    <span class="fas fa-edit"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <select class="custom-select size-big " id="actividad" name="actividad" autofocus>
+                            <option selected>Seleccione la Actividad</option>
+                            <option value="1">HAMS CAMBIO DE ESTILO</option>
+                            <option value="2">HAMS INSPECION</option>
+                            <option value="3">HAMS HOUSE KEEPING</option>
+                            <option value="4">GSD ANALISIS</option>
+                            <option value="5">REPORTE DIARIO DE PRODUCCION</option>
+                            <option value="6">PAPELERIA PARA SUPERVISOR</option>
+                            <option value="7">REPORTE MENSUAL DE TARGET</option>
+                            <option value="8">VARIOS</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control size-big" placeholder="Comentario" id="comentario"
+                            name="comentario">
+                    </div>
+
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <select class="custom-select size-medium " id="importancia" name="importancia">
+                            <option selected>Importacia de Actividad</option>
+                            <option value="1">IMPORTANTE</option>
+                            <option value="2">REGULAR</option>
+                            <option value="3">NORMAL</option>
+
+                        </select>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-success">
+                            <span class="fas fa-plus "></span>
+                            Agregar Nuevo Registro
+                        </button>
+                    </div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
