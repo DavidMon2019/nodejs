@@ -19,6 +19,12 @@
     <script src="/js/metodos.js"></script>
 
     {{>nav-menu}}
+    {{#if message}}
+    <div id="alert alert-{{message.type}}">
+        <button type="button" name="close" data-dismiss="alert">&times;</button>
+        <strong>{{message.intro}}</strong>{{message.message}}
+    </div>
+    {{/if}}
     {{>form}}
     {{{body}}}
 </body>
