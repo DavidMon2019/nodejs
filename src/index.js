@@ -13,6 +13,9 @@ const reload = require('reload');
 const http = require('http');
 //var sendevent = require('sendevent');
 
+app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 /*===========================================================================
                             SETTINGS  
