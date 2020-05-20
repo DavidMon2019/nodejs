@@ -18,7 +18,7 @@ routes.get('/reg-hora', (req, res) => {
 routes.post('/reg-dia', (req,res) => {
         console.log(req.body);
         res.send('mensaje');
-}, err => console.log('error post reg-dia'));
+r => console.log('error post reg-dia')});
 
 routes.get('/reg-dia', (req, res) => {
     res.render('pages/bitacora-dia.hbs');
