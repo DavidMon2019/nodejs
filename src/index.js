@@ -37,9 +37,9 @@ app.set('view engine', '.hbs');
 var publicPath = path.resolve(__dirname, 'public'); //path.join(__dirname, 'public'); también puede ser una opción
 app.use(express.static(publicPath)); // Para que los archivos estaticos queden disponibles.
 
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
   res.render(path.join(__dirname, 'public/index.html'));
-});
+});*/
 
 /*===========================================================================
                             Variables Globales  

@@ -1,3 +1,11 @@
+{{#if message}}
+<div class="alert alert-{{message.type}} alert-dismissible fade show" role="alert">
+    <strong>{{message.intro}}</strong> {{message.message}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{{/if}}
 <div class="pos-f-t content">
     <div class="collapse" id="navbarToggleExternalContent">
         <div class="bg-dark p-4">
@@ -40,7 +48,7 @@
                 <div class="row">
                     <div class="col">
                         <select class="custom-select size-medium " id="importancia" name="importancia">
-                            <option selected>Importacia de Actividad</option>
+                            <option selected>Importancia de Actividad</option>
                             <option value="1">IMPORTANTE</option>
                             <option value="2">REGULAR</option>
                             <option value="3">NORMAL</option>

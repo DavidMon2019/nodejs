@@ -3,41 +3,49 @@ const routes = express.Router();
 
 const pool = require('../conexion.js');
 
-const datos = {
-    'fecha': '',
-    'horas': '',
-    'actividad': '',
-    'comentario': '',
-    'importancia': ''
-}
+
 var f = new Date();
-var fecha = f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear();
+var fecha = f.getFullYear() + "/" + (f.getMonth() + 1) + "/" + f.getDate();
 
-function alertMessage(req){
- 
-   return message;
-}
-
-routes.get('/reg-hora', (req, res) => {
-    res.render('pages/bitacora-hora.hbs');
-});
-
-routes.post('/reg-dia', (req,res) => {
-    message={
-        type:'danger',
-        intro:'empty',
-        message:req
-   }
-        datos.fecha= fecha;
-        if(req.body.actividad === 'Seleccione la Actividad'){
-        }
-       res.redirect('/links/reg-dia')
-       
-      
-r => console.log('error post reg-dia')});
 
 routes.get('/reg-dia', (req, res) => {
-    res.render('pages/bitacora-dia.hbs');
+    res.render('pages/bitacora-dia');
+});
+
+routes.post('/reg-dia', async (req, res) => {
+    message = {
+        'type': '',
+        'intro': '',
+        'message': ''
+    }
+
+    const { horas, actividad, comentario, importancia } = req.body;
+    const datos = {
+        actividad, comentario, fecha, horas, importancia
+    }
+
+    if (req.body.actividad === 'Seleccione la Actividad' && req.body.importancia === 'Importancia de Actividad'
+        && req.body.comentario === '') {
+        message.type = 'warning';
+        message.intro = '¡Campos Vacios!'
+        message.message = 'No puede dejar ningun campo vacio'
+        res.render('pages/bitacora-dia', { message });
+    } else {
+        await pool.query('INSERT INTO REGISTROS set ?', [datos]);
+        message.type = 'success';
+        message.intro = '¡Exito!'
+        message.message = 'Actividad Guardada Correctamente'
+        res.render('pages/bitacora-dia', { message });
+
+    }
+    r => console.log('error post reg-dia')
+});
+
+routes.get('/', async (req, res) => {
+    const registros = await pool.query('select id,actividad,comentario,DATE_FORMAT(fecha, "%d/%m/%Y") fecha,horas,'
+        + 'codigo_usuario,importancia from registros;');
+    console.log(registros);
+    res.render('pages/bitacora-dia', { registros });
 });
 
 module.exports = routes;
