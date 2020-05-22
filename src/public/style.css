@@ -60,3 +60,11 @@ textarea{
   background-color: #2980B9;
   color: white;
 }
+
+/*Login Styles*/
+.login{
+  width: 300px;
+  text-align: left;
+  margin: auto;
+  
+}

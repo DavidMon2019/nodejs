@@ -7,22 +7,18 @@ const pool = require('../conexion.js');
 var f = new Date();
 var fecha = f.getFullYear() + "/" + (f.getMonth() + 1) + "/" + f.getDate();
 
-
-routes.get('/reg-dia', (req, res) => {
-    res.render('pages/bitacora-dia');
-});
-
 routes.post('/reg-dia', async (req, res) => {
     message = {
         'type': '',
         'intro': '',
         'message': ''
     }
-
+    const act = req.body.actividad;
     const { horas, actividad, comentario, importancia } = req.body;
     const datos = {
         actividad, comentario, fecha, horas, importancia
     }
+    console.log(act);
 
     if (req.body.actividad === 'Seleccione la Actividad' && req.body.importancia === 'Importancia de Actividad'
         && req.body.comentario === '') {
@@ -41,7 +37,7 @@ routes.post('/reg-dia', async (req, res) => {
     r => console.log('error post reg-dia')
 });
 
-routes.get('/', async (req, res) => {
+routes.get('/reg-dia', async (req, res) => {
     const registros = await pool.query('select id,actividad,comentario,DATE_FORMAT(fecha, "%d/%m/%Y") fecha,horas,'
         + 'codigo_usuario,importancia from registros;');
     console.log(registros);

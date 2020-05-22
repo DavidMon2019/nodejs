@@ -47,7 +47,10 @@ app.use(express.static(publicPath)); // Para que los archivos estaticos queden d
 /*===========================================================================
                             RUTAS  
 ===========================================================================*/
-app.use('/links', require('./routes/links'));
+app.use('/regs', require('./routes/links'));
+app.get('/',(req,res)=>{
+  res.render('pages/login');
+});
 
 /*===========================================================================
                             PUBLIUC 
